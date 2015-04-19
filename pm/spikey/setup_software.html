@@ -1,0 +1,214 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Experiment execution &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../../_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/extra.js"></script>
+    <script type="text/javascript" src="../../_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../../index.html" />
+    <link rel="up" title="The Spikey “physical model” system" href="../spikey.html" />
+    <link rel="next" title="Spikey school" href="spikey_school.html" />
+    <link rel="prev" title="The Spikey “physical model” system" href="../spikey.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="../../index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment execution</a><ul>
+<li><a class="reference internal" href="#login-to-uhei-cluster">Login to UHEI cluster</a></li>
+<li><a class="reference internal" href="#load-software-modules">Load software modules</a></li>
+<li><a class="reference internal" href="#run-experiment">Run experiment</a></li>
+<li><a class="reference internal" href="#tips-and-tricks">Tips and tricks</a></li>
+<li><a class="reference internal" href="#using-the-web-interface-of-the-human-brain-project">Using the web interface of the Human Brain Project</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../spikey.html"
+                        title="previous chapter">The Spikey &#8220;physical model&#8221; system</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="spikey_school.html"
+                        title="next chapter">Spikey school</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pm/spikey/setup_software.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+                <div class="breadcrumb breadcrumb-meta expand">
+                    
+                    <a href="../spikey.html">The Spikey &#8220;physical model&#8221; system</a>
+                    
+                </div>
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="../spikey.html">The Spikey &#8220;physical model&#8221; system</a>
+                    </span>
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="spikey_school.html">Spikey school</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="experiment-execution">
+<h1>Experiment execution<a class="headerlink" href="#experiment-execution" title="Permalink to this headline">¶</a></h1>
+<p>Use the following instructions to login, load the pre-built software package and run experiments on the UHEI cluster.
+For using the Spikey system outside the UHEI cluster and for developers, please manually install the required software (see <a class="reference internal" href="appendix.html#label-spikeysoftware"><em>Setup software</em></a>).</p>
+<div class="section" id="login-to-uhei-cluster">
+<span id="label-clusterlogin"></span><h2>Login to UHEI cluster<a class="headerlink" href="#login-to-uhei-cluster" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>From the network of the Kirchhoff-Institute for Physics:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>ssh KIPUSER@<span class="o">{</span>ice,ignatz<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Otherwise:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>ssh s1ext_someuser@gitviz.kip.uni-heidelberg.de -p 7022 <span class="c"># or 6022</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-software-modules">
+<span id="label-softwaremodule"></span><h2>Load software modules<a class="headerlink" href="#load-software-modules" title="Permalink to this headline">¶</a></h2>
+<p>To load the pre-built software package and configure the environment variables use:</p>
+<div class="highlight-bash"><div class="highlight"><pre>module load spikey
+</pre></div>
+</div>
+<p>This module has to be loaded for every environment, and in particular, after logging in.</p>
+</div>
+<div class="section" id="run-experiment">
+<span id="label-expexec"></span><h2>Run experiment<a class="headerlink" href="#run-experiment" title="Permalink to this headline">¶</a></h2>
+<p>Download the <a class="reference external" href="https://github.com/electronicvisions/spikey_demo/blob/master/networks/example.py">Spikey example experiment</a>.
+For more example networks see <a class="reference internal" href="spikey_school.html#label-spikeyschool"><em>Spikey school</em></a> and <a class="reference external" href="https://github.com/electronicvisions/spikey_demo/blob/master/networks">Spikey demos</a>.
+On the UHEI cluster <a class="reference external" href="http://slurm.schedmd.com/">SLURM</a> is used to manage the workload on our systems.
+To queue the execution of a Python script use:</p>
+<div class="highlight-bash"><div class="highlight"><pre>srun -p spikey --gres stationXXX python example.py
+</pre></div>
+</div>
+<p>Replace XXX with the number of the chip you want to use (e.g. 500).</p>
+</div>
+<div class="section" id="tips-and-tricks">
+<h2>Tips and tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>To view the queue of experiments use:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>squeue
+</pre></div>
+</div>
+<ul class="simple">
+<li>To query a list of available Spikey systems on the UHEI cluster see the <a class="reference external" href="https://gitviz.kip.uni-heidelberg.de:8443/view/spikey/job/hw_spikey_chipstatus_all/">chip status page</a>.</li>
+<li>The setup of SSH keys for pubkey-based access to github.com is described in <a class="reference internal" href="appendix.html#label-clustersshkeygithub"><em>Setting up SSH keys on UHEI cluster for github.com</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="using-the-web-interface-of-the-human-brain-project">
+<h2>Using the web interface of the Human Brain Project<a class="headerlink" href="#using-the-web-interface-of-the-human-brain-project" title="Permalink to this headline">¶</a></h2>
+<p>To select a chip using the <a class="reference external" href="https://www.hbpneuromorphic.eu">web interface of the Human Brain Project</a> enter the following parameters into the &#8220;Hardware Config&#8221; box:</p>
+<div class="highlight-none"><div class="highlight"><pre>{&quot;STATION&quot;:&quot;stationXXX&quot;}
+</pre></div>
+</div>
+<p>Replace XXX with the number of the chip you want to use (e.g. 500).</p>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="../spikey.html">The Spikey &#8220;physical model&#8221; system</a>
+                </span>
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="spikey_school.html">Spikey school</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

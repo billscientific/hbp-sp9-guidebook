@@ -1,0 +1,167 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Built-in calibrations &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../../_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/extra.js"></script>
+    <script type="text/javascript" src="../../_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../../index.html" />
+    <link rel="up" title="The Spikey “physical model” system" href="../spikey.html" />
+    <link rel="next" title="Testing the system" href="test.html" />
+    <link rel="prev" title="Frequently asked questions (FAQ)" href="faq.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="../../index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="faq.html"
+                        title="previous chapter">Frequently asked questions (FAQ)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="test.html"
+                        title="next chapter">Testing the system</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/pm/spikey/calibration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+                <div class="breadcrumb breadcrumb-meta expand">
+                    
+                    <a href="../spikey.html">The Spikey &#8220;physical model&#8221; system</a>
+                    
+                </div>
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="faq.html">Frequently asked questions (FAQ)</a>
+                    </span>
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="test.html">Testing the system</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="built-in-calibrations">
+<h1>Built-in calibrations<a class="headerlink" href="#built-in-calibrations" title="Permalink to this headline">¶</a></h1>
+<p>The calibration of the Spikey neuromorphic system consists of five components:</p>
+<ul class="simple">
+<li>Calibration of fast analog-to-digital converter (for recording analog signals)</li>
+<li>Calibration of parameter cells (vout values)</li>
+<li>Calibration of output pins (for reading out analog signals)</li>
+<li>Calibration of membrane time constant</li>
+<li>Calibration of refractory period (currently not used)</li>
+<li>Calibration of synapse drivers (axon-wise adjustment of synaptic strength, see also <a class="reference internal" href="spikey_school.html#pfeil2013">[Pfeil2013]</a>)</li>
+</ul>
+<p>To calibrate the chip get source code</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/electronicvisions/spikey-calib.git
+</pre></div>
+</div>
+<p>and run the calibration</p>
+<div class="highlight-bash"><div class="highlight"><pre>python calibAll.py stationXXX
+</pre></div>
+</div>
+<p>where XXX has to be replaced by the chip number to be calibrated.</p>
+<p>To visualize calibration results run</p>
+<div class="highlight-bash"><div class="highlight"><pre>python analyzeAll.py stationXXX
+</pre></div>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="faq.html">Frequently asked questions (FAQ)</a>
+                </span>
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="test.html">Testing the system</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

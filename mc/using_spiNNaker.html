@@ -1,0 +1,272 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using the SpiNNaker system &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/extra.js"></script>
+    <script type="text/javascript" src="../_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../index.html" />
+    <link rel="up" title="The SpiNNaker “many core” system" href="mc_index.html" />
+    <link rel="next" title="The SpiNNaker standalone system" href="standaloneSpiNNaker.html" />
+    <link rel="prev" title="About the SpiNNaker hardware" href="spiNNaker_configuration.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="../index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using the SpiNNaker system</a><ul>
+<li><a class="reference internal" href="#supported-pynn-functionality">Supported PyNN functionality</a><ul>
+<li><a class="reference internal" href="#neuron-model-limitations">Neuron model limitations</a></li>
+<li><a class="reference internal" href="#external-input">External input</a></li>
+<li><a class="reference internal" href="#connectors">Connectors</a></li>
+<li><a class="reference internal" href="#plasticity">Plasticity</a></li>
+<li><a class="reference internal" href="#simulation-execution">Simulation execution</a></li>
+<li><a class="reference internal" href="#pynn-missing-functionality">PyNN missing functionality</a></li>
+<li><a class="reference internal" href="#parameter-ranges">Parameter ranges</a></li>
+<li><a class="reference internal" href="#synapse-and-neuron-loss">Synapse and neuron loss</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mapping-and-routing">Mapping and Routing</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="spiNNaker_configuration.html"
+                        title="previous chapter">About the SpiNNaker hardware</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="standaloneSpiNNaker.html"
+                        title="next chapter">The SpiNNaker standalone system</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mc/using_spiNNaker.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+                <div class="breadcrumb breadcrumb-meta expand">
+                    
+                    <a href="mc_index.html">The SpiNNaker &#8220;many core&#8221; system</a>
+                    
+                </div>
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="spiNNaker_configuration.html">About the SpiNNaker hardware</a>
+                    </span>
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="standaloneSpiNNaker.html">The SpiNNaker standalone system</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="using-the-spinnaker-system">
+<h1>Using the SpiNNaker system<a class="headerlink" href="#using-the-spinnaker-system" title="Permalink to this headline">¶</a></h1>
+<p>As explained in <a class="reference internal" href="../building_models.html#building-models"><em>Building models</em></a>, both the experiment description and the model description
+for the SpiNNaker system must be written as Python scripts,
+using the PyNN application programming interface (API), version 0.7.
+The implementation of the PyNN API for the SpiNNaker system is called <tt class="xref py py-mod docutils literal"><span class="pre">sPyNNaker</span></tt>, and
+is also available as the module <tt class="xref py py-mod docutils literal"><span class="pre">pyNN.spiNNaker</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyNN.spiNNaker</span> <span class="kn">as</span> <span class="nn">sim</span>
+</pre></div>
+</div>
+<div class="section" id="supported-pynn-functionality">
+<h2>Supported PyNN functionality<a class="headerlink" href="#supported-pynn-functionality" title="Permalink to this headline">¶</a></h2>
+<p><tt class="xref py py-mod docutils literal"><span class="pre">sPyNNaker</span></tt> currently supports a subset of the standard <a class="reference external" href="http://neuralensemble.org/trac/PyNN/wiki/API-0.7">PyNN 0.7 API</a> together with a number of extensions.
+The supported interface functions are listed below.
+A possibly more up-to-date list can be found in the <a class="reference external" href="http://spinnakermanchester.github.io/latest/spynnaker_limitations.html">online documentation</a>.</p>
+<p>In the next planned release, it is planned that the remaining missing features of PyNN 0.7 will be implemented, along with some initial support for PyNN 0.8.</p>
+<div class="section" id="neuron-model-limitations">
+<h3>Neuron model limitations<a class="headerlink" href="#neuron-model-limitations" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker currently supports the following model types:</p>
+<dl class="docutils">
+<dt><tt class="xref py py-class docutils literal"><span class="pre">IFCurrExp</span></tt></dt>
+<dd>Current based leaky integrate and fire, with 1 excitatory and 1 inhibitory exponentially decaying synaptic input per neuron</dd>
+<dt><tt class="xref py py-class docutils literal"><span class="pre">IFCondExp</span></tt></dt>
+<dd>Conductance based leaky integrate and fire, with 1 excitatory and 1 inhibitory exponentially decaying synaptic input per neuron</dd>
+<dt><tt class="xref py py-class docutils literal"><span class="pre">IFCurrDualExp</span></tt></dt>
+<dd>Current based, Leaky integrate and fire, with 2 excitatory and 1 inhibitory exponentially decaying synaptic input per neuron</dd>
+<dt><tt class="xref py py-class docutils literal"><span class="pre">IZKCurrExp</span></tt></dt>
+<dd>Current based Izhikevich with 1 excitatory and 1 inhibitory exponentially decaying synaptic input per neuron</dd>
+<dt><tt class="xref py py-class docutils literal"><span class="pre">IZKCondExp</span></tt></dt>
+<dd>Conductance based Izhikevich with 1 excitatory and 1 inhibitory exponentially decaying synaptic input per neuron</dd>
+</dl>
+<p>Note that there are also further restrictions on what plasticity types are supported when used with the above models.</p>
+<p>All of our neural models have a limitation of 255 neurons per core. Depending on which SpiNNaker board you are using, this will limit the number of neurons that can be supported in any simulation.</p>
+</div>
+<div class="section" id="external-input">
+<h3>External input<a class="headerlink" href="#external-input" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker currently supports <tt class="xref py py-class docutils literal"><span class="pre">SpikeSourceArray</span></tt>
+(note that the spikes to be input can be changed between calls to run) and
+<tt class="xref py py-class docutils literal"><span class="pre">SpikeSourcePoisson</span></tt>.</p>
+<p>Currently, only the <tt class="docutils literal"><span class="pre">i_offset</span></tt> parameter of the neural models can be used to inject current directly;
+there is no support for noisy or step-based current input.</p>
+<p>A third, non-standard PyNN interface, way of injecting current into a PyNN simulation executing on the hardware is through live injection from an external device.
+These functions are supported by our <tt class="xref py py-class docutils literal"><span class="pre">sPyNNakerExternalDevicesPlugin</span></tt>.
+A description on how to use this functionality can be found <a class="reference external" href="http://spinnakermanchester.github.io/spynnaker/3.0.0/SimpleIO-LabManual.pdf">here</a>.</p>
+</div>
+<div class="section" id="connectors">
+<h3>Connectors<a class="headerlink" href="#connectors" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker currently supports the following standard connector types:</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">OneToOneConnector</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">AllToAllConnector</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">FixedNumberPreConnector</span></tt>,</li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">FixedProbabilityConnector</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">DistanceDependentProbabilityConnector</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">FromFileConnector</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">FromListConnector</span></tt></li>
+</ul>
+<p>Note that using the latter two connectors will result in slower operation of the tools.</p>
+<p>sPyNNaker also provides the non-standard <tt class="xref py py-class docutils literal"><span class="pre">MultapseConnector</span></tt>,
+which creates a fixed number of randomly selected connections.</p>
+</div>
+<div class="section" id="plasticity">
+<h3>Plasticity<a class="headerlink" href="#plasticity" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker currently only supports plasticity described by an <tt class="xref py py-class docutils literal"><span class="pre">STDPMechanism</span></tt>
+which is set as the <tt class="docutils literal"><span class="pre">slow</span></tt> property of <tt class="xref py py-class docutils literal"><span class="pre">SynapseDynamics</span></tt>.</p>
+<p>sPyNNaker supports the following STDP timing dependence rules:</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">PfisterSpikeTripletRule</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">SpikePairRule</span></tt></li>
+</ul>
+<p>and the following STDP weight dependence rules:</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">AdditiveWeightDependence</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">MultiplicativeWeightDependence</span></tt></li>
+</ul>
+</div>
+<div class="section" id="simulation-execution">
+<h3>Simulation execution<a class="headerlink" href="#simulation-execution" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker supports the ability to call <tt class="xref py py-func docutils literal"><span class="pre">run()</span></tt> multiple times with different combinations of runtime values,
+and to call <tt class="xref py py-func docutils literal"><span class="pre">reset()</span></tt> multiple times with <tt class="xref py py-func docutils literal"><span class="pre">run()</span></tt> interleaved.</p>
+<p>sPyNNaker supports the addition of <tt class="xref py py-class docutils literal"><span class="pre">Population</span></tt>s and <tt class="xref py py-class docutils literal"><span class="pre">Projection</span></tt>s between a <tt class="xref py py-func docutils literal"><span class="pre">reset()</span></tt> and a <tt class="xref py py-class docutils literal"><span class="pre">run()</span></tt>,
+but not between multiple calls to run().</p>
+</div>
+<div class="section" id="pynn-missing-functionality">
+<h3>PyNN missing functionality<a class="headerlink" href="#pynn-missing-functionality" title="Permalink to this headline">¶</a></h3>
+<p>sPyNNaker does not support:</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">PopulationView</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">Assembly</span></tt>.</li>
+</ul>
+<p>sPyNNaker does not support changing of weights / delays / neuron parameters between the initial call to <tt class="xref py py-class docutils literal"><span class="pre">run()</span></tt> and a <tt class="xref py py-func docutils literal"><span class="pre">reset()</span></tt> call.</p>
+</div>
+<div class="section" id="parameter-ranges">
+<h3>Parameter ranges<a class="headerlink" href="#parameter-ranges" title="Permalink to this headline">¶</a></h3>
+<p>All parameters and their ranges are under software control.</p>
+<p>Weights are held as 16-bit integers, with their range determined at compile-time to suit the application; this limits the overall range of weights that can be represented, with the smallest representable weight being dependent on the largest weights specified.</p>
+<p>There is a limit on the length of delays of between 1 and 144 time steps (i.e. 1 - 144 ms when using 1 ms time steps, or 0.1 - 14.4 ms when using 0.1 ms time steps). Delays of more than 16 time steps require an additional &#8220;delay population&#8221; to be added; this is done automatically by the software when such delays are detected.</p>
+<p>Membrane voltages and other neuron parameters are generally held as 32-bit fixed point numbers in the s16.15 format. Membrane voltages are held in mV.</p>
+</div>
+<div class="section" id="synapse-and-neuron-loss">
+<h3>Synapse and neuron loss<a class="headerlink" href="#synapse-and-neuron-loss" title="Permalink to this headline">¶</a></h3>
+<p>Projection links between two sub-populations that were initially defined as connected are removed by the software if the number of connections between the two sub-populations is determined to be zero when the projection is realised in the software’s mapping process.</p>
+<p>The SpiNNaker communication fabric can drop packets, so there is the chance during execution that spikes might not reach their destination (or might only reach some of their destinations). The software attempts to recover from such losses through a reinjection mechanism, but this will only work if the overall spike rate is not so high as to overload the communications fabric in the first place.</p>
+</div>
+</div>
+<div class="section" id="mapping-and-routing">
+<h2>Mapping and Routing<a class="headerlink" href="#mapping-and-routing" title="Permalink to this headline">¶</a></h2>
+<p>The mapping process examines the neural network definition and attempts to break it down in to parts, each of which can be executed on a SpiNNaker core.  A routing algorithm is then run to work out the communication paths between the cores on the SpiNNaker network.  In the current software, mapping and routing takes place on the host machine as part of the placement and configuration manager (PACMAN).</p>
+<p>It is possible for end users to add their own mapping and routing algorithms into the tool chain.  Instructions on how to do so can be found <a class="reference external" href="http://spinnakermanchester.github.io/latest/mapping_algorithms.html">here</a>.</p>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="spiNNaker_configuration.html">About the SpiNNaker hardware</a>
+                </span>
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="standaloneSpiNNaker.html">The SpiNNaker standalone system</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

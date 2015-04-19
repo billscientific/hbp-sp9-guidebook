@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Spikey Software &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+          <p class="logo"><a href="../index.html">
+            <img class="logo" src="../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+          </a></p>
+        <div class="headertitle"><a
+          href="../index.html">HBP Neuromorphic Computing Platform Guidebook (WIP)</a></div>
+        <div class="rel">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="spikey-software">
+<span id="label-spikeysoftware"></span><h1>Spikey Software<a class="headerlink" href="#spikey-software" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preparation-of-operating-system">
+<h2>Preparation of operating system<a class="headerlink" href="#preparation-of-operating-system" title="Permalink to this headline">¶</a></h2>
+<p>We consider the newest stable <a class="reference external" href="http://www.ubuntu.com/desktop">Ubuntu</a> operating system as reference system.</p>
+<p>Software packages required for build:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install libboost-all-dev libusb-1.0-0-dev liblog4cxx10-dev libqt4-dev libgtest-dev libgsl0-dev python-nose
+</pre></div>
+</div>
+<p>Software packages required for experiment execution:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install python-numpy python-scipy python-matplotlib
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-hardware-drivers">
+<h2>Installing hardware drivers<a class="headerlink" href="#installing-hardware-drivers" title="Permalink to this headline">¶</a></h2>
+<p>The driver software for the Spikey system is managed by the repository called &#8220;symap2ic&#8221;.
+Note that you need an account for the <a class="reference external" href="https://gitviz.kip.uni-heidelberg.de/">project management system</a> in Heidelberg to access this repository.
+To get access, download and install the driver software process the following instructions step by step:</p>
+<ol class="arabic simple">
+<li>Add ssh key for authentication (for help see <a class="reference external" href="https://gitviz.kip.uni-heidelberg.de/projects/symap2ic/wiki/Symap2icGitvizHowto">here</a>)</li>
+<li>Download the root repository: <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;gitviz.kip.uni-heidelberg.de:symap2ic.git</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">symap2ic</span></tt></li>
+<li>Set environment variables: <tt class="docutils literal"><span class="pre">.</span> <span class="pre">bootstrap.sh.UHEI</span></tt></li>
+<li>Choose your software configuration: <tt class="docutils literal"><span class="pre">./waf</span> <span class="pre">set_config</span> <span class="pre">stage1-flyspi-single</span></tt></li>
+<li>Install the software: <tt class="docutils literal"><span class="pre">./waf</span> <span class="pre">configure</span> <span class="pre">build</span> <span class="pre">install</span></tt></li>
+<li>If using multiple chip connected to single host computer, create a file named &#8220;my_stage1_station&#8221; in your home directory and enter your default station (e.g., &#8220;station500&#8221;)</li>
+</ol>
+</div>
+<div class="section" id="installing-pynn">
+<span id="label-pynn"></span><h2>Installing PyNN<a class="headerlink" href="#installing-pynn" title="Permalink to this headline">¶</a></h2>
+<p>The Spikey backend is not included in the official <a class="reference external" href="http://neuralensemble.org/PyNN/">PyNN</a> project.
+So please download and install a Spikey-specific PyNN version which builds on PyNN version 0.6.0.</p>
+<ul class="simple">
+<li>On UHEI computer</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>module load pynn/0.6.0-hw
+</pre></div>
+</div>
+<ul class="simple">
+<li>On private computer</li>
+</ul>
+<ol class="arabic simple">
+<li>Download the source code: <tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;gitviz.kip.uni-heidelberg.de:deb-pynn</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">deb-pynn</span></tt></li>
+<li>Select branch: <tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">0.6.0</span></tt></li>
+<li>Install PyNN to the installation path DIR: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span> <span class="pre">--prefix=DIR</span></tt></li>
+<li>Add the following line to your bashrc: <tt class="docutils literal"><span class="pre">export</span> <span class="pre">PYTHONPATH=$PYTHONPATH:DIR/lib/pythonX.Y/site-package</span></tt> (replace DIR, X, Y, respectively)</li>
+</ol>
+</div>
+<div class="section" id="allow-access-to-usb-device">
+<h2>Allow access to USB device<a class="headerlink" href="#allow-access-to-usb-device" title="Permalink to this headline">¶</a></h2>
+<p>If using the Spikey system on a private computer, you will need root privileges to allow normal users to access this USB device.</p>
+<ol class="arabic simple">
+<li>Add your user to <tt class="docutils literal"><span class="pre">plugdev</span></tt> group: <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">plugdev</span> <span class="pre">USERNAME</span></tt> (replace USERNAME)</li>
+<li>Assign Spikey systems to <tt class="docutils literal"><span class="pre">plugdev</span></tt> group: <tt class="docutils literal"><span class="pre">cd</span> <span class="pre">symap2ic;</span> <span class="pre">sudo</span> <span class="pre">sh</span> <span class="pre">components/vmodule/nosudo</span></tt></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../building_models.html">Building models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_the_platform.html">Running simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pm.html">The BrainScaleS &#8220;physical model&#8221; system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spikey.html">The Spikey &#8220;physical model&#8221; system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mc/spiNNaker_configuration.html">The SpiNNaker &#8220;many core&#8221; system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mc/standaloneSpiNNaker.html">The SpiNNaker standalone system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="../search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="../genindex.html" title="General Index"
+             >index</a>
+            <br/>
+            <a href="../_sources/pm/spikey_appendix.txt"
+               rel="nofollow">Show Source</a>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2015, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Jul 30, 2015 (fc38600, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

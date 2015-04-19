@@ -1,0 +1,183 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Appendix: Miscellaneous &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/extra.js"></script>
+    <script type="text/javascript" src="_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="index.html" />
+    <link rel="prev" title="Appendix: Installation of the BrainScaleS software stack" href="pm/appendix_installation.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Appendix: Miscellaneous</a><ul>
+<li><a class="reference internal" href="#brainscales">BrainScaleS</a><ul>
+<li><a class="reference internal" href="#job-queue-demo-hbp-summit-2014">Job queue Demo - HBP Summit 2014</a></li>
+<li><a class="reference internal" href="#roqt-visualization">roqt (Visualization)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pm/appendix_installation.html"
+                        title="previous chapter">Appendix: Installation of the BrainScaleS software stack</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/appendix.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="pm/appendix_installation.html">Appendix: Installation of the BrainScaleS software stack</a>
+                    </span>
+                    
+                    
+                </aside>
+
+                <div class="section" id="appendix-miscellaneous">
+<h1>Appendix: Miscellaneous<a class="headerlink" href="#appendix-miscellaneous" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="brainscales">
+<h2>BrainScaleS<a class="headerlink" href="#brainscales" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="job-queue-demo-hbp-summit-2014">
+<h3>Job queue Demo - HBP Summit 2014<a class="headerlink" href="#job-queue-demo-hbp-summit-2014" title="Permalink to this headline">¶</a></h3>
+<p>On a UHEI BrainScaleS cluster frontend node:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>somewhere-on-your-wang:
+
+socksify git clone https://github.com/electronicvisions/hbp_platform_demo
+
+<span class="nb">cd </span>hbp_platform_demo
+
+module load pynn
+module load mongo
+module load PlatformDemo/20140924_sschmitt
+
+srun -p wafer python run.py nmpm1
+
+*wait*
+
+display result.png
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/schmittfirechain_result_hicannv2.png" src="_images/schmittfirechain_result_hicannv2.png" style="width: 100%;" />
+<p class="caption">Figure 85: Demo running on a HICANNv2 Wafer module.</p>
+</div>
+<div class="figure">
+<img alt="_images/schmittfirechain_result_ess.png" src="_images/schmittfirechain_result_ess.png" style="width: 100%;" />
+<p class="caption">Figure 86: Demo running on the ESS.</p>
+</div>
+<p>The repository can be also when creating job via the web interface, cf. <a class="reference internal" href="using_the_platform.html#using-the-web-interface"><em>Using the web interface</em></a>.</p>
+</div>
+<div class="section" id="roqt-visualization">
+<h3>roqt (Visualization)<a class="headerlink" href="#roqt-visualization" title="Permalink to this headline">¶</a></h3>
+<p>You need to be in the roqt directory, because the ui file is loaded by a relative path:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>marocco/tools/roqt
+<span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PWD</span>/lib:<span class="nv">$PYTHONPATH</span> bin/roqt /some/path/to/roqt.bin
+</pre></div>
+</div>
+<div class="figure">
+<img alt="roqt screenshot" src="_images/demo_roqt.png" />
+<p class="caption">Figure 87: Routing visualization of the roqt visualization tool.</p>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="pm/appendix_installation.html">Appendix: Installation of the BrainScaleS software stack</a>
+                </span>
+                
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

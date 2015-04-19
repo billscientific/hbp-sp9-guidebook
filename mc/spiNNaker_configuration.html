@@ -1,0 +1,180 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About the SpiNNaker hardware &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/extra.js"></script>
+    <script type="text/javascript" src="../_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../index.html" />
+    <link rel="up" title="The SpiNNaker “many core” system" href="mc_index.html" />
+    <link rel="next" title="Using the SpiNNaker system" href="using_spiNNaker.html" />
+    <link rel="prev" title="The SpiNNaker “many core” system" href="mc_index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="../index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About the SpiNNaker hardware</a><ul>
+<li><a class="reference internal" href="#available-hardware-setups">Available hardware setups</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mc_index.html"
+                        title="previous chapter">The SpiNNaker &#8220;many core&#8221; system</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="using_spiNNaker.html"
+                        title="next chapter">Using the SpiNNaker system</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mc/spiNNaker_configuration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+                <div class="breadcrumb breadcrumb-meta expand">
+                    
+                    <a href="mc_index.html">The SpiNNaker &#8220;many core&#8221; system</a>
+                    
+                </div>
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="mc_index.html">The SpiNNaker &#8220;many core&#8221; system</a>
+                    </span>
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="using_spiNNaker.html">Using the SpiNNaker system</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="about-the-spinnaker-hardware">
+<h1>About the SpiNNaker hardware<a class="headerlink" href="#about-the-spinnaker-hardware" title="Permalink to this headline">¶</a></h1>
+<p>The MC-1 machine is designed to utilise the power of digital hardware and
+support various models/application though the use of programmable software that
+can run on ARM cores. A description of the hardware can be located online <a class="reference external" href="http://apt.cs.manchester.ac.uk/projects/SpiNNaker/">here</a>.</p>
+<p>The MC-1 relies upon software support to allow the PyNN interface to execute
+on the MC-1 machine; This ranges from low level software (known as <a class="reference external" href="https://github.com/SpiNNakerManchester/spinnaker_tools">spinnaker_tools</a>, including <a class="reference external" href="https://github.com/SpiNNakerManchester/spinnaker_tools/tree/2016.001/docs/sark.pdf">SARK</a>, the <a class="reference external" href="https://github.com/SpiNNakerManchester/spinnaker_tools/tree/2016.001/docs/spinn_api_doc.pdf">Spin1API</a> and <a class="reference external" href="https://github.com/SpiNNakerManchester/spinnaker_tools/tree/2016.001/docs/ybug.pdf">ybug</a>) to high level software that takes a graph representation of an application (in
+this case a PyNN description of a Neural network) and maps, optimises and
+executes this application on the MC-1 hardware and supports the retrieval of
+application data generated during the applications execution.</p>
+<p>Details of the latest version of the high level software can be found <a class="reference external" href="https://spinnakermanchester.github.io">here</a>, and the source code can be seen <a class="reference external" href="https://github.com/SpiNNakerManchester/sPyNNaker/tree/2016.001">here</a>.</p>
+<div class="section" id="available-hardware-setups">
+<h2>Available hardware setups<a class="headerlink" href="#available-hardware-setups" title="Permalink to this headline">¶</a></h2>
+<p>There are currently five known hardware setups:</p>
+<dl class="docutils">
+<dt>Jorg Conradt’s one-node board.</dt>
+<dd>This is a single SpiNNaker chip that is produced at TU Munchen and is intended for light-weight near-robotic applications.</dd>
+<dt>A single 4-chip board.</dt>
+<dd>These are commonly used at SpiNNaker workshops.  There are a number of these boards in boxes.</dd>
+<dt>A single 48-chip board.</dt>
+<dd>This is the standard building block of SpiNNaker machines, but each board can be used in isolation.  As with the 4-chip boards, a number of 48-node boards are available in boxes.</dd>
+<dt>A stand-alone toroid.</dt>
+<dd>A number of individual 48-node boards can be wired together as a single machine. Additionally, the edges can be wired so that the machine forms a toroidal mesh of chips.</dd>
+<dt>The 600 board machine.</dt>
+<dd>This is the machine that is currently running behind the HBP portal.  This machine can be broken into smaller multi-board machines through the use of the spalloc software; this allows a number of smaller jobs to run simultaneously on the machine, as well as allowing a single large job to use the whole half-million cores available.</dd>
+</dl>
+<p>When using the HBP portal, allocation of the machine is done by estimating the size of board required by the given PyNN script.  The network is broken down and mapped on to a virtual machine (see below) as described in <span class="target" id="mapping-and-routing">Mapping and Routing</span>, and then a machine of an appropriate size is allocated.  The remaining mapping and routing algorithms are then run as normal.</p>
+<p>The software also supports the ability to run in virtual mode, where the tools execute the PyNN script as if it was linked to a direct SpiNNaker machine, but without actually generating any simulated data. This supports end users in testing their scripts for basic compilation errors before loading them into the HBP portal.  Instructions on how to use this functionality can be found <a class="reference external" href="http://spinnakermanchester.github.io/latest/virtual.html">here</a>.</p>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="mc_index.html">The SpiNNaker &#8220;many core&#8221; system</a>
+                </span>
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="using_spiNNaker.html">Using the SpiNNaker system</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

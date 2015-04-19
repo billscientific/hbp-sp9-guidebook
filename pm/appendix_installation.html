@@ -1,0 +1,262 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Appendix: Installation of the BrainScaleS software stack &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="../_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/extra.js"></script>
+    <script type="text/javascript" src="../_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="../index.html" />
+    <link rel="next" title="Appendix: Miscellaneous" href="../appendix.html" />
+    <link rel="prev" title="Getting help" href="../getting_help.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="../index.html">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Appendix: Installation of the BrainScaleS software stack</a><ul>
+<li><a class="reference internal" href="#ssh-agent">ssh-agent</a></li>
+<li><a class="reference internal" href="#build-tool">Build Tool</a></li>
+<li><a class="reference internal" href="#pyhmf-marocco-and-dependencies">PyHMF, marocco and Dependencies</a></li>
+<li><a class="reference internal" href="#running-pynn-scripts">Running PyNN scripts</a></li>
+<li><a class="reference internal" href="#inspect-the-configuration">Inspect the Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../getting_help.html"
+                        title="previous chapter">Getting help</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../appendix.html"
+                        title="next chapter">Appendix: Miscellaneous</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/pm/appendix_installation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    <span class="hbpdoc-hnav-previous">
+                        previous: <a class="hbpdoc-hnav-link" href="../getting_help.html">Getting help</a>
+                    </span>
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="../appendix.html">Appendix: Miscellaneous</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="appendix-installation-of-the-brainscales-software-stack">
+<h1>Appendix: Installation of the BrainScaleS software stack<a class="headerlink" href="#appendix-installation-of-the-brainscales-software-stack" title="Permalink to this headline">¶</a></h1>
+<p>In the following the build and work flow on University of Heidelberg cluster frontend nodes is described.
+This is only needed if you want to use the system locally within Heidelberg.
+If the BrainScaleS System is accessed through the HBP Collaboratory or the Python client,
+this software environment is pre-installed.</p>
+<p>The following section can be skipped when loading the <tt class="docutils literal"><span class="pre">nmpm_software</span></tt> module by</p>
+<div class="highlight-bash"><div class="highlight"><pre>module load nmpm_software/current
+</pre></div>
+</div>
+<p>All available versions can be listed by <tt class="docutils literal"><span class="pre">module</span> <span class="pre">avail</span> <span class="pre">nmpm_software</span></tt>.</p>
+<p>To compile your own installation create and change to a directory for
+your projects, preferably on <tt class="docutils literal"><span class="pre">wang</span></tt>, e.g.:
+<tt class="docutils literal"><span class="pre">/wang/users/&lt;somebody&gt;/cluster_home/projects</span></tt>.</p>
+<div class="section" id="ssh-agent">
+<h2>ssh-agent<a class="headerlink" href="#ssh-agent" title="Permalink to this headline">¶</a></h2>
+<p>To reduce the amount of typing, please consider using <tt class="docutils literal"><span class="pre">ssh-agent</span></tt> to cache your key password:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">eval</span> <span class="sb">`</span>ssh-agent<span class="sb">`</span>
+ssh-add ~/path/to/your/private_id_rsa
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-tool">
+<h2>Build Tool<a class="headerlink" href="#build-tool" title="Permalink to this headline">¶</a></h2>
+<p>We use a custom version (<tt class="docutils literal"><span class="pre">git&#64;gitviz.kip.uni-heidelberg.de:waf.git</span></tt>) of the <tt class="docutils literal"><span class="pre">waf</span></tt> configuration and build tool.
+A nightly version is provided by loading:</p>
+<div class="highlight-bash"><div class="highlight"><pre>module load waf
+</pre></div>
+</div>
+</div>
+<div class="section" id="pyhmf-marocco-and-dependencies">
+<h2>PyHMF, marocco and Dependencies<a class="headerlink" href="#pyhmf-marocco-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to create a new workspace for the software checkouts and the subsequent build</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir ~/my_nmpm_software <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/my_nmpm_software
+</pre></div>
+</div>
+<p>Now <tt class="docutils literal"><span class="pre">waf</span></tt> can be used to setup the project.
+It will clone all the dependencies.</p>
+<div class="highlight-bash"><div class="highlight"><pre>waf setup --project pyhmf --project<span class="o">=</span>marocco --without-ester
+</pre></div>
+</div>
+<p>The next step is configuration.
+As the default software environment on the UHEI cluster does not provide all the software dependencies, you have to load some modules which will provide those dependencies:</p>
+<div class="highlight-bash"><div class="highlight"><pre>module load localdir
+module load pynn/0.7.5
+module load mongo
+module load yaml-cpp/0.5.3
+</pre></div>
+</div>
+<p>As those commands are needed every time you want to use the software it is convenient to put all the needed parts into a script:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">echo</span> <span class="s2">&quot;INSTALLED_LIB_PATH=$(readlink -e lib)&quot;</span> &gt; init.sh
+cat &gt;&gt;init.sh<span class="s">&lt;&lt;EOF</span>
+<span class="s">cd ${INSTALLED_LIB_PATH}</span>
+<span class="s">module load localdir</span>
+<span class="s">module load pynn/0.7.5</span>
+<span class="s">module load mongo</span>
+<span class="s">module load yaml-cpp/0.5.3</span>
+<span class="s">cd -</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>After completing the installation steps below, this script can be sourced (<tt class="docutils literal"><span class="pre">source</span> <span class="pre">init.sh</span></tt>) to access the BrainScaleS Wafer-Scale Software Stack.</p>
+<p>Now the configuration step:</p>
+<div class="highlight-bash"><div class="highlight"><pre>waf configure
+</pre></div>
+</div>
+<p>The install step will build and install all targets into subdirectories of your current working directory.
+Currently, you need to explicitly specify some extra targets in a second call.</p>
+<div class="highlight-bash"><div class="highlight"><pre>waf install --test-execnone
+<span class="c"># some extra targets are needed</span>
+waf install --target<span class="o">=</span>pymarocco,pyhalbe,pysthal,redman_xml --test-execnone
+</pre></div>
+</div>
+<p>If you want to include the calibration toolkit (<tt class="docutils literal"><span class="pre">cake</span></tt>) (optional):</p>
+<div class="highlight-bash"><div class="highlight"><pre>waf setup --project pyhmf --project marocco --project cake --without-ester
+<span class="c"># module load ...</span>
+waf configure
+waf install --test-execnone
+<span class="c"># some extra targets are needed</span>
+waf install --target<span class="o">=</span>pymarocco,pyhalbe,pysthal,redman_xml,pycake --test-execnone
+</pre></div>
+</div>
+<p>To include support for executable system simulation (ESS) add <tt class="docutils literal"><span class="pre">--with-ess</span></tt> to the setup call.</p>
+<p>Please remember, to that you have to setup the software environment if you start new shells (e.g. by using the  <tt class="docutils literal"><span class="pre">init.sh</span></tt> script):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source</span> ~/my_nmpm_software/init.sh
+</pre></div>
+</div>
+<p>Check if the installation and the setup of variables is fine:</p>
+<div class="highlight-bash"><div class="highlight"><pre>python -c <span class="s2">&quot;import pyhmf&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>ok
+</pre></div>
+</div>
+<p>should print <tt class="docutils literal"><span class="pre">ok</span></tt>, if instead:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">pyhmf</span>
+</pre></div>
+</div>
+<p>occurs, either the installation failed or the environment variables responsible for finding the module are wrong.
+In that case, double check if you followed the instructions 1:1.</p>
+</div>
+<div class="section" id="running-pynn-scripts">
+<h2>Running PyNN scripts<a class="headerlink" href="#running-pynn-scripts" title="Permalink to this headline">¶</a></h2>
+<p>To run locally on the <em>hardware</em> one needs to use the SLURM job queue system:</p>
+<div class="highlight-bash"><div class="highlight"><pre>srun -p nmpm -L <span class="sb">`</span>license_by_hicann 33 367<span class="sb">`</span> --pty python nmpm1_single_neuron.py
+</pre></div>
+</div>
+<p>nmpm1_single_neuron.py:</p>
+</div>
+<div class="section" id="inspect-the-configuration">
+<h2>Inspect the Configuration<a class="headerlink" href="#inspect-the-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>sthal/tools/dump_cfg.py
+</pre></div>
+</div>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                <span class="hbpdoc-hnav-previous">
+                    previous: <a class="hbpdoc-hnav-link" href="../getting_help.html">Getting help</a>
+                </span>
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="../appendix.html">Appendix: Miscellaneous</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,197 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The HBP Neuromorphic Computing Platform &mdash; HBP Neuromorphic Computing Platform Guidebook (WIP)</title>
+    
+    <link rel="stylesheet" href="_static/hbpdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '2017-02-14 13:33:55 (4aeed78)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/extra.js"></script>
+    <script type="text/javascript" src="_static/hbpdoc.js"></script>
+    <link rel="top" title="HBP Neuromorphic Computing Platform Guidebook (WIP)" href="#" />
+    <link rel="next" title="Getting started" href="quick_start.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+<div class="hbpdoc-page">
+    <section class="hbpdoc-title page-header">
+        <a class="project-title" href="#">HBP Neuromorphic Computing Platform Guidebook</a>
+
+        <a class="hbpdoc-toc-toggle pull-right" href>
+            <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+        </a>
+    </section>
+    <section class="hbpdoc-main">
+        <nav class="hbpdoc-sidebar hbpdoc-container">
+            <a class="hbpdoc-toc-toggle pull-right" href>
+                <span class="zmdi zmdi-menu"></span> <span class="sr-only icon-text">Menu</span>
+            </a>
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/HBP_Primary_RGB_logoOnlyScaled68px.png" alt="Logo"/>
+            </a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quick_start.html"
+                        title="next chapter">Getting started</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+        </nav>
+
+        <article class="hbpdoc-content">
+
+            <div class="content">
+                
+
+                <aside class="hbpdoc-hnav hbpdoc-hnav-top">
+                    
+                    
+                    <span class="hbpdoc-hnav-next">
+                        next: <a class="hbpdoc-hnav-link" href="quick_start.html">Getting started</a>
+                    </span>
+                    
+                </aside>
+
+                <div class="section" id="the-hbp-neuromorphic-computing-platform">
+<h1>The HBP Neuromorphic Computing Platform<a class="headerlink" href="#the-hbp-neuromorphic-computing-platform" title="Permalink to this headline">¶</a></h1>
+<p>Living document version:</p>
+<p>4aeed78
+Tue, 14 Feb 2017 13:33:55 GMT</p>
+<p>The Neuromorphic Computing Platform allows neuroscientists and engineers to perform experiments with configurable neuromorphic computing systems.
+The platform provides two complementary, large-scale neuromorphic systems built in custom hardware at locations in Heidelberg, Germany (the &#8220;BrainScaleS&#8221; system, also known as the &#8220;physical model&#8221; or PM system) and Manchester, United Kingdom (the &#8220;SpiNNaker&#8221; system, also known as the &#8220;many core&#8221; or MC system). Both systems enable energy-efficient, large-scale neuronal network simulations with simplified spiking neuron models. The BrainScaleS system is based on physical (analogue) emulations of neuron models and offers highly accelerated operation (10<sup>4</sup> x real time). The SpiNNaker system is based on a digital many-core architecture and provides real-time operation.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#request-a-compute-time-allocation">Request a compute time allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#run-a-simulation">Run a simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#copy-data-to-longer-term-storage">Copy data to longer-term storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building_models.html">Building models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_models.html#the-pynn-model-description-api">The PyNN model description API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_models.html#a-simple-example">A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_models.html#using-different-backends">Using different backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_models.html#physical-model-brainscales-system">&#8220;Physical model&#8221; (BrainScaleS) system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_models.html#many-core-spinnaker-system">&#8220;Many core&#8221; (SpiNNaker) system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using_the_platform.html">Running simulations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using_the_platform.html#format-of-a-job">Format of a job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_platform.html#using-the-web-interface">Using the web interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_the_platform.html#using-the-python-client">Using the Python client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pm/pm.html">The BrainScaleS &#8220;physical model&#8221; system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pm/pm_hardware_configuration.html">About the BrainScaleS hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/using_pm_newflow.html">Using the BrainScaleS system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/ess.html">Simulating the BrainScaleS hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pm/spikey.html">The Spikey &#8220;physical model&#8221; system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/setup_software.html">Experiment execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/spikey_school.html">Spikey school</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/faq.html">Frequently asked questions (FAQ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/calibration.html">Built-in calibrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/test.html">Testing the system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/spikey/appendix.html">Spikey Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mc/mc_index.html">The SpiNNaker &#8220;many core&#8221; system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mc/spiNNaker_configuration.html">About the SpiNNaker hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mc/using_spiNNaker.html">Using the SpiNNaker system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mc/standaloneSpiNNaker.html">The SpiNNaker standalone system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#developing-benchmarks">Developing benchmarks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">Getting help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_help.html#brainscales-specific-help">BrainScaleS-specific help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_help.html#spinnaker-specific-help">SpiNNaker-specific help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pm/appendix_installation.html">Appendix: Installation of the BrainScaleS software stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pm/appendix_installation.html#ssh-agent">ssh-agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/appendix_installation.html#build-tool">Build Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/appendix_installation.html#pyhmf-marocco-and-dependencies">PyHMF, marocco and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/appendix_installation.html#running-pynn-scripts">Running PyNN scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pm/appendix_installation.html#inspect-the-configuration">Inspect the Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix: Miscellaneous</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#brainscales">BrainScaleS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+            </div>
+
+            <aside class="hbpdoc-hnav hbpdoc-hnav-bottom">
+                
+                
+                <span class="hbpdoc-hnav-next">
+                    next: <a class="hbpdoc-hnav-link" href="quick_start.html">Getting started</a>
+                </span>
+                
+            </aside>
+        </article>
+    </section>
+
+
+    <div class="hbpdoc-footer">
+        HBP Neuromorphic Computing Platform Guidebook <small>2017-02-14 13:33:55 (4aeed78)</small> 
+    <div class="footer">
+        &copy; Copyright 2015-2016, Andrew P. Davison, Eric Müller, Sebastian Schmitt, Bernhard Vogginger, David Lester, Thomas Pfeil, ....
+      Last updated on Feb 14, 2017 (4aeed78, preliminary documentation).
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    </div>
+</div>
+
+  </body>
+</html>
